@@ -1,4 +1,5 @@
 ﻿using ActiproSoftware.Windows.Input;
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,7 @@ namespace LostFocusDemo
 		{
 			this.RootNode = new TreeNode() { Name = "Root" };
 
-			this.RootNode.Children.Add(new TreeNode()
-			{
-				Name = "Node1"
-			});
-
-			this.RootNode.Children.Add(new TreeNode()
-			{
-				Name = "Node2"
-			});
+			this.RootNode.AddChildren([new() { Name = "Node1" }, new() {Name = "Node2" }]);
 
 			this.DelCommand = new DelegateCommand<TreeNode>((parameter) =>
 			{

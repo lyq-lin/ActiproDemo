@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:common="clr-namespace:Common;assembly=Common"
         xmlns:grids="http://schemas.actiprosoftware.com/winfx/xaml/grids"
         xmlns:ribbon="http://schemas.actiprosoftware.com/winfx/xaml/ribbon"
         xmlns:docking="http://schemas.actiprosoftware.com/winfx/xaml/docking"
@@ -17,7 +18,7 @@
 
     <Window.Resources>
         <DataTemplate x:Key="TreeNodeItemTemplate"
-                      DataType="{x:Type local:TreeNode}">
+                      DataType="{x:Type common:TreeNode}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -45,7 +46,7 @@
                                                IsRootItemVisible="False"
                                                ItemTemplate="{StaticResource TreeNodeItemTemplate}">
                                 <grids:TreeListBox.ItemAdapter>
-                                    <local:TreeNodeItemAdapter />
+                                    <common:TreeNodeItemAdapter />
                                 </grids:TreeListBox.ItemAdapter>
                             </grids:TreeListBox>
                         </docking:DocumentWindow>
