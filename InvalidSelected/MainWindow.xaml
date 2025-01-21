@@ -1,0 +1,58 @@
+﻿<Window x:Class="InvalidSelected.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:common="clr-namespace:Common;assembly=Common"
+        xmlns:grids="http://schemas.actiprosoftware.com/winfx/xaml/grids"
+        xmlns:ribbon="http://schemas.actiprosoftware.com/winfx/xaml/ribbon"
+        xmlns:docking="http://schemas.actiprosoftware.com/winfx/xaml/docking"
+        xmlns:themes="http://schemas.actiprosoftware.com/winfx/xaml/themes"
+        xmlns:local="clr-namespace:InvalidSelected"
+        Title="DynamicLoad Invalid ItemSelected"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <common:TreeNodeItemAdapter x:Key="TreeNodeItemAdapter" />
+
+        <DataTemplate x:Key="TreeNodeItemTemplate"
+                      DataType="{x:Type common:TreeNode}">
+            <ribbon:AccessTextBlock Text="{Binding Name}" />
+        </DataTemplate>
+
+        <Style x:Key="TreeNodeItemStyle"
+               TargetType="{x:Type grids:TreeListBoxItem}"
+               BasedOn="{StaticResource {x:Type grids:TreeListBoxItem}}">
+            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <grids:TreeListBox RootItem="{Binding RootNode}"
+                           ItemTemplate="{StaticResource TreeNodeItemTemplate}"
+                           ItemAdapter="{StaticResource TreeNodeItemAdapter}"
+                           IsRootItemVisible="False" />
+
+        <ribbon:Button Grid.Row="1"
+                       Height="28"
+                       Margin="8"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       themes:ThemeProperties.CornerRadius="3"
+                       Background="CadetBlue"
+                       Command="{Binding LoadCommand}"
+                       Label="Load Data" />
+
+    </Grid>
+</Window>
