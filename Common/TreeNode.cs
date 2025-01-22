@@ -18,6 +18,8 @@ namespace Common
 		private bool _isSelected;
 		private bool _hasChildren;
 
+		public TreeNode? Parent { get; set; }
+
 		public bool HasChildren
 		{
 			get { return _hasChildren; }
@@ -58,7 +60,12 @@ namespace Common
 
 		public void AddChildren(TreeNode[] nodes)
 		{
-			this.Children.AddRange(nodes);
+			foreach (var node in nodes)
+			{
+				node.Parent = this;
+
+				this.Children.Add(node);
+			}
 		}
 	}
 }

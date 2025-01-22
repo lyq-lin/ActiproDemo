@@ -29,6 +29,7 @@
 
                 <ribbon:Button Grid.Column="1"
                                Foreground="Red"
+                               Focusable="False"
                                CommandParameter="{Binding .}"
                                Command="{Binding DataContext.DelCommand, RelativeSource={RelativeSource AncestorType=local:MainWindow}}"
                                Label="×" />

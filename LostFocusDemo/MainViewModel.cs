@@ -15,11 +15,15 @@ namespace LostFocusDemo
 		{
 			this.RootNode = new TreeNode() { Name = "Root" };
 
-			this.RootNode.AddChildren([new() { Name = "Node1" }, new() {Name = "Node2" }]);
+			var node1 = new TreeNode() { Name = "Node1", IsExpanded = true };
+
+			node1.AddChildren([new() { Name = "Node2" }, new() { Name = "Node3" }]);
+
+			this.RootNode.AddChildren([node1]);
 
 			this.DelCommand = new DelegateCommand<TreeNode>((parameter) =>
 			{
-				this.RootNode.Children.Remove(parameter);
+				parameter.Parent?.Children.Remove(parameter);
 			});
 		}
 
