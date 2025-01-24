@@ -26,26 +26,29 @@ namespace InvalidSelected
 					IsExpanded = true,
 				};
 
-				dynamicNode.AddChildren([new()
+				var node3 = new TreeNode()
 				{
 					Name = "Node3",
-					IsSelectable = true,
-					IsSelected = true,
-				},
-				new()
+					IsSelectable = true
+				};
+
+				var node4 = new TreeNode()
 				{
 					Name = "Node4",
 					IsSelectable = true,
-				}
-				]);
+				};
+
+				dynamicNode.AddChildren([node3, node4]);
 
 				this.RootNode.AddChildren([dynamicNode]);
+
+				node3.IsSelected = true;
 			});
 
 			/*
 			 * Static Load */
 
-			var staticNode = new TreeNode()
+			/*var staticNode = new TreeNode()
 			{
 				Name = "Static Load",
 				IsExpanded = true,
@@ -65,6 +68,7 @@ namespace InvalidSelected
 			]);
 
 			this.RootNode.AddChildren([staticNode]);
+			*/
 		}
 
 		public TreeNode RootNode { get; set; }

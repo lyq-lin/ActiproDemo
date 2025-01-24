@@ -10,6 +10,13 @@ namespace Common
 {
 	public class TreeNodeItemAdapter : TreeListBoxItemAdapter
 	{
+		public TreeNodeItemAdapter()
+		{
+			this.IsExpandedPath = "IsExpanded";
+			this.IsSelectablePath = "IsSelectable";
+			this.IsSelectedPath = "IsSelected";
+		}
+
 		public override IEnumerable GetChildren(TreeListBox ownerControl, object item)
 		{
 			return item is TreeNode node ? node.Children : base.GetChildren(ownerControl, item);

@@ -23,8 +23,6 @@ namespace Common
 		{
 			if (!Equals(field, value))
 			{
-				this.OnPropertyChanged(property);
-
 				field = value;
 
 				this.OnPropertyChanged(property);
