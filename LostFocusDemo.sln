@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvalidSelected", "InvalidS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editor", "Editor\Editor.csproj", "{1CA27C71-E1E9-4481-8FF9-7046EA902ADF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyntaxEditorDemo", "SyntaxEditorDemo\SyntaxEditorDemo.csproj", "{8B435B4F-C21F-4330-8852-678314E4B543}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1CA27C71-E1E9-4481-8FF9-7046EA902ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CA27C71-E1E9-4481-8FF9-7046EA902ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CA27C71-E1E9-4481-8FF9-7046EA902ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B435B4F-C21F-4330-8852-678314E4B543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B435B4F-C21F-4330-8852-678314E4B543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B435B4F-C21F-4330-8852-678314E4B543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B435B4F-C21F-4330-8852-678314E4B543}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
