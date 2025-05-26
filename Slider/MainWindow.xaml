@@ -1,0 +1,89 @@
+﻿<Window x:Class="Slider.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Slider"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <!--  滑块样式：圆形  -->
+        <ControlTemplate x:Key="RoundThumbTemplate"
+                         TargetType="Thumb">
+            <Ellipse Fill="{TemplateBinding Background}"
+                     Stroke="{TemplateBinding BorderBrush}"
+                     StrokeThickness="{TemplateBinding BorderThickness}" />
+        </ControlTemplate>
+
+        <!--  左边进度条  -->
+        <ControlTemplate x:Key="DecreaseButtonTemplate"
+                         TargetType="RepeatButton">
+            <Border Height="6"
+                    VerticalAlignment="Center"
+                    Background="#2196F3"
+                    CornerRadius="3 0 0 3" />
+        </ControlTemplate>
+
+        <!--  右边未填充轨道  -->
+        <ControlTemplate x:Key="IncreaseButtonTemplate"
+                         TargetType="RepeatButton">
+            <Border Height="6"
+                    VerticalAlignment="Center"
+                    Background="#EEE"
+                    CornerRadius="0 3 3 0" />
+        </ControlTemplate>
+
+        <Style x:Key="RoundedSliderStyle"
+               TargetType="Slider">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Slider">
+                        <Grid Margin="10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Track x:Name="PART_Track"
+                                   Grid.Column="1"
+                                   Focusable="False">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="Slider.DecreaseLarge"
+                                                  Style="{x:Null}"
+                                                  Template="{DynamicResource DecreaseButtonTemplate}"
+                                                  IsTabStop="False" />
+                                </Track.DecreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb x:Name="Thumb"
+                                           Width="20"
+                                           Height="20"
+                                           Background="#2196F3"
+                                           BorderBrush="White"
+                                           BorderThickness="2"
+                                           Template="{DynamicResource RoundThumbTemplate}" />
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="Slider.IncreaseLarge"
+                                                  Style="{x:Null}"
+                                                  Template="{DynamicResource IncreaseButtonTemplate}"
+                                                  IsTabStop="False" />
+                                </Track.IncreaseRepeatButton>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Slider Style="{StaticResource RoundedSliderStyle}"
+                Minimum="0"
+                Maximum="100"
+                Value="50" />
+    </Grid>
+</Window>
