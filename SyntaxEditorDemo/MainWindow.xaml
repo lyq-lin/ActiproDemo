@@ -15,9 +15,10 @@
             <RowDefinition />
         </Grid.RowDefinitions>-->
 
-        <RichTextBox IsDocumentEnabled="True">
+        <!--<RichTextBox IsDocumentEnabled="True">
             <FlowDocument>
-                <!--<BlockUIContainer>
+        -->
+        <!--<BlockUIContainer>
                     <syntaxeditor:SyntaxEditor x:Name="t1"
                                                IsIndicatorMarginVisible="False"
                                                IsOutliningMarginVisible="False"
@@ -28,6 +29,7 @@
                                                CanScrollPastDocumentEnd="True"
                                                IsViewLineMeasureEnabled="True" />
                 </BlockUIContainer>-->
+        <!--
 
 
                 <BlockUIContainer>
@@ -35,6 +37,16 @@
                              VerticalScrollBarVisibility="Visible" />
                 </BlockUIContainer>
             </FlowDocument>
-        </RichTextBox>
+        </RichTextBox>-->
+
+        <syntaxeditor:SyntaxEditor x:Name="t1"
+                                   IsIndicatorMarginVisible="False"
+                                   IsOutliningMarginVisible="False"
+                                   IsLineNumberMarginVisible="False"
+                                   IsRulerMarginVisible="False"
+                                   VerticalScrollBarVisibility="Auto"
+                                   CanSplitHorizontally="False"
+                                   CanScrollPastDocumentEnd="True"
+                                   IsViewLineMeasureEnabled="True" />
     </Grid>
 </Window>
